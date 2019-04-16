@@ -85,6 +85,7 @@ Ngram zerogram.
 You can access the order of n-gram, its history and last element:
 
 ```Smalltalk
+tetragram. "n-gram(green eggs and ham)"
 tetragram order. "4"
 tetragram history. "n-gram(green eggs and)"
 tetragram last. "ham"
