@@ -8,7 +8,7 @@
 [![Pharo version](https://img.shields.io/badge/Pharo-7.0-%23aac9ff.svg)](https://pharo.org/download)
 [![Pharo version](https://img.shields.io/badge/Pharo-8.0-%23aac9ff.svg)](https://pharo.org/download)
 
-`Ngram` package provides basic [n-gram](https://en.wikipedia.org/wiki/N-gram) functionality for Pharo. This includes `Ngram` class as well as `String` and `SequenceableCollection` extension that allow you to split text into unigrams, bigrams, trigrams, etc.
+`Ngram` package provides basic [n-gram](https://en.wikipedia.org/wiki/N-gram) functionality for Pharo. This includes `Ngram` class as well as `String` and `SequenceableCollection` extension that allow you to split text into unigrams, bigrams, trigrams, etc. Basically, this is just a simple utility for splitting texts into sequences of words.
 
 ## Installation
 To install Ngram packages, go to the Playground (Ctrl+OW) in your Pharo image and execute the following Metacello script (select it and press Do-it button or Ctrl+D):
@@ -21,20 +21,33 @@ Metacello new
 
 ## What are n-grams?
 
-[N-gram](https://en.wikipedia.org/wiki/N-gram) is a sequence of `n` elements, usually words. The concept of n-grams is widely used in [natural language processing (NLP)](https://en.wikipedia.org/wiki/Natural_language_processing). A text can be split into n-grams - sequences of `n` words. Consider the following text:
+[N-gram](https://en.wikipedia.org/wiki/N-gram) is a sequence of n elements (number n is called the order of n-gram), usually words. The concept of n-grams is widely used in [natural language processing (NLP)](https://en.wikipedia.org/wiki/Natural_language_processing). A text can be split into n-grams - sequences of n words. Consider the following text:
 ```
 I do not like green eggs and ham
 ```
-We can split it into unigrams (n-grams with `n=1`):
+We can split it into unigrams (n-grams with n=1):
 ```
 (I), (do), (not), (like), (green), (eggs), (and), (ham)
 ```
-Or bigrams (n-grams with `n=2`):
+Or bigrams (n-grams with n=2):
 ```
 (I do), (do not), (not like), (like green), (green eggs), (eggs and), (and ham)
 ```
-Or trigrams (n-grams with `n=3`):
+Or trigrams (n-grams with n=3):
 ```
 (I do not), (do not like), (not like green), (like green eggs), (green eggs and), (eggs and ham)
 ```
-And so on.
+And so on (tetragrams, pentagrams, etc.).
+
+### Applications
+
+N-grams are widely applied in [language modeling](https://en.wikipedia.org/wiki/Language_model). For example, take a look at the implementation of [n-gram language model](https://github.com/olekscode/NgramModel) in Pharo.
+
+### Structure of n-gram
+
+Each n-gram can be separated into:
+
+* **last word** - the last element in a sequence;
+* **history** (context) - n-gram of order n-1 with all words except the last one.
+
+Such separation is useful in probabilistic modeling when we want to estimate the probability of word given n-1 previous words (see [n-gram language model](https://github.com/olekscode/NgramModel)).
