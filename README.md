@@ -21,7 +21,7 @@ Metacello new
 
 ## What are n-grams?
 
-[N-gram](https://en.wikipedia.org/wiki/N-gram) is a sequence of n elements (number n is called the order of n-gram), usually words. The concept of n-grams is widely used in [natural language processing (NLP)](https://en.wikipedia.org/wiki/Natural_language_processing). A text can be split into n-grams - sequences of n words. Consider the following text:
+[N-gram](https://en.wikipedia.org/wiki/N-gram) is a sequence of n elements, usually words. Number n is called the order of n-gram The concept of n-grams is widely used in [natural language processing (NLP)](https://en.wikipedia.org/wiki/Natural_language_processing). A text can be split into n-grams - sequences of n words. Consider the following text:
 ```
 I do not like green eggs and ham
 ```
