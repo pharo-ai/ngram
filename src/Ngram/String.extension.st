@@ -1,6 +1,11 @@
 Extension { #name : #String }
 
 { #category : #'*Ngram' }
+String >> asNgram [
+	^ Ngram withElements: { self }
+]
+
+{ #category : #'*Ngram' }
 String >> bigrams [
 	^ self ngrams: 2.
 ]

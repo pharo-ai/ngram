@@ -10,18 +10,18 @@ Class {
 }
 
 { #category : #'instance creation' }
-Ngram class >> fromArray: anArray [
-	"Creates n-gram from an array of n elements"
-	anArray isEmpty ifTrue: [ ^ self zerogram ].
-	^ self
-		withHistory: (self fromArray: (anArray copyWithoutIndex: anArray size))
-		last: anArray last.
-]
-
-{ #category : #'instance creation' }
 Ngram class >> new [ 
 	"Either use zerogram to create an empty n-gram or provide values"
 	self shouldNotImplement
+]
+
+{ #category : #'instance creation' }
+Ngram class >> withElements: aCollection [
+	"Creates n-gram from a collection of n elements"
+	aCollection isEmpty ifTrue: [ ^ self zerogram ].
+	^ self
+		withHistory: (self withElements: aCollection allButLast)
+		last: aCollection last.
 ]
 
 { #category : #'instance creation' }

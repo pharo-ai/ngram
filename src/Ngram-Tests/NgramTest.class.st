@@ -30,14 +30,6 @@ NgramTest >> testEquality [
 ]
 
 { #category : #tests }
-NgramTest >> testFromArray [
-	| ngram |
-	ngram := Ngram fromArray: #(1 2 3).
-	
-	self assert: ngram order equals: 3.
-]
-
-{ #category : #tests }
 NgramTest >> testInequalitySize [
 	| firstNgram secondNgram |
 	firstNgram := #(lorem ipsum) asNgram.
@@ -100,10 +92,16 @@ NgramTest >> testUnigramHasOrder1 [
 ]
 
 { #category : #tests }
-NgramTest >> testZerogramFromArray [
+NgramTest >> testWithElements [
 	| ngram |
-	ngram := Ngram fromArray: #().
-	
+	ngram := Ngram withElements: #(1 2 3).
+	self assert: ngram order equals: 3.
+]
+
+{ #category : #tests }
+NgramTest >> testWithElementsZerogram [
+	| ngram |
+	ngram := Ngram withElements: #().
 	self assert: ngram order equals: 0.
 ]
 
