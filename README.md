@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/olekscode/Ngram.svg?branch=master)](https://travis-ci.org/olekscode/Ngram)
 [![Build status](https://ci.appveyor.com/api/projects/status/nxwn8odf3q2fafo2?svg=true)](https://ci.appveyor.com/project/olekscode/ngram)
+[![Coverage Status](https://coveralls.io/repos/github/olekscode/Ngram/badge.svg?branch=master)](https://coveralls.io/github/olekscode/Ngram?branch=master)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/olekscode/Ngram/master/LICENSE)
 [![Pharo version](https://img.shields.io/badge/Pharo-6.1-%23aac9ff.svg)](https://pharo.org/download)
 [![Pharo version](https://img.shields.io/badge/Pharo-7.0-%23aac9ff.svg)](https://pharo.org/download)
