@@ -5,18 +5,30 @@ Class {
 }
 
 { #category : #tests }
-NgramTest >> testAsNgram [
-	| ngram |
+NgramTest >> testAsArray [
+	| ngram expected actual |
 	ngram := #(1 2 3) asNgram.
-	
-	self assert: ngram order equals: 3.
+	expected := #(1 2 3).
+	actual := ngram asArray.
+	self assert: actual equals: expected.
 ]
 
 { #category : #tests }
-NgramTest >> testBigramHasOrder2 [
+NgramTest >> testAsNgram [
 	| ngram |
-	ngram := #(lorem ipsum) asNgram. 
-	self assert: ngram order equals: 2.
+	ngram := #(1 2 3) asNgram.
+	self assert: ngram order equals: 3.
+	self assert: ngram history equals: #(1 2) asNgram.
+	self assert: ngram last equals: 3.
+]
+
+{ #category : #tests }
+NgramTest >> testAsNgramString [
+	| str expected actual |
+	str := 'hello'.
+	expected := #(hello) asNgram.
+	actual := str asNgram.
+	self assert: actual equals: expected.
 ]
 
 { #category : #tests }
@@ -27,6 +39,13 @@ NgramTest >> testEquality [
 	
 	self assert: firstNgram equals: secondNgram.
 	self assert: firstNgram hash equals: secondNgram hash.
+]
+
+{ #category : #tests }
+NgramTest >> testHistory [
+	| ngram |
+	ngram := #(lorem ipsum dolor) asNgram. 
+	self assert: ngram history equals: #(lorem ipsum) asNgram.
 ]
 
 { #category : #tests }
@@ -50,45 +69,36 @@ NgramTest >> testInequalityValues [
 ]
 
 { #category : #tests }
-NgramTest >> testPentagramHasOrder5 [
-	| ngram |
-	ngram := #(lorem ipsum dolor sit amet) asNgram. 
-	self assert: ngram order equals: 5.
-]
-
-{ #category : #tests }
-NgramTest >> testTetragramHasOrder4 [
-	| ngram |
-	ngram := #(lorem ipsum dolor sit) asNgram. 
-	self assert: ngram order equals: 4.
-]
-
-{ #category : #tests }
-NgramTest >> testTrigramHasOrder3 [
-	| ngram |
-	ngram := #(lorem ipsum dolor) asNgram. 
-	self assert: ngram order equals: 3.
-]
-
-{ #category : #tests }
-NgramTest >> testTrigramHistory [
-	| ngram |
-	ngram := #(lorem ipsum dolor) asNgram. 
-	self assert: ngram history equals: #(lorem ipsum) asNgram.
-]
-
-{ #category : #tests }
-NgramTest >> testTrigramLast [
+NgramTest >> testLast [
 	| ngram |
 	ngram := #(lorem ipsum dolor) asNgram. 
 	self assert: ngram last equals: 'dolor'.
 ]
 
 { #category : #tests }
-NgramTest >> testUnigramHasOrder1 [
+NgramTest >> testNew [
+	self should: [ Ngram new ] raise: Error.
+]
+
+{ #category : #tests }
+NgramTest >> testOrder [
 	| ngram |
-	ngram := #(lorem) asNgram. 
-	self assert: ngram order equals: 1.
+	ngram := #(lorem ipsum dolor sit) asNgram. 
+	self assert: ngram order equals: 4.
+]
+
+{ #category : #tests }
+NgramTest >> testPrintOn [
+	| ngram stream expected actual |
+	
+	ngram := #(hello world) asNgram.
+	stream := String new writeStream.
+	ngram printOn: stream.
+	
+	expected := 'n-gram(hello world)'.
+	actual := stream contents.
+	
+	self assert: actual equals: expected.
 ]
 
 { #category : #tests }
@@ -99,15 +109,25 @@ NgramTest >> testWithElements [
 ]
 
 { #category : #tests }
-NgramTest >> testWithElementsZerogram [
+NgramTest >> testWithElementsEmptyArray [
 	| ngram |
 	ngram := Ngram withElements: #().
 	self assert: ngram order equals: 0.
 ]
 
 { #category : #tests }
-NgramTest >> testZerogramHasOrder0 [
+NgramTest >> testWithHistoryLast [
+	| expected actual |
+	expected := #(1 2 3) asNgram.
+	actual := Ngram withHistory: #(1 2) asNgram last: 3.
+	self assert: actual equals: expected.
+]
+
+{ #category : #tests }
+NgramTest >> testZerogram [
 	| ngram |
 	ngram := Ngram zerogram. 
 	self assert: ngram order equals: 0.
+	self assert: ngram history isEmpty.
+	self assert: ngram last isNil.
 ]
