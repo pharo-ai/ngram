@@ -25,15 +25,15 @@ Metacello new
 ```
 I do not like green eggs and ham
 ```
-We can split it into unigrams (n-grams with n=1):
+We can split it into **unigrams** (n-grams with n=1):
 ```
 (I), (do), (not), (like), (green), (eggs), (and), (ham)
 ```
-Or bigrams (n-grams with n=2):
+Or **bigrams** (n-grams with n=2):
 ```
 (I do), (do not), (not like), (like green), (green eggs), (eggs and), (and ham)
 ```
-Or trigrams (n-grams with n=3):
+Or **trigrams** (n-grams with n=3):
 ```
 (I do not), (do not like), (not like green), (like green eggs), (green eggs and), (eggs and ham)
 ```
