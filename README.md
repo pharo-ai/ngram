@@ -51,3 +51,43 @@ Each n-gram can be separated into:
 * **history** (context) - n-gram of order n-1 with all words except the last one.
 
 Such separation is useful in probabilistic modeling when we want to estimate the probability of word given n-1 previous words (see [n-gram language model](https://github.com/olekscode/NgramModel)).
+
+## Ngram class
+
+This package provides only one class - `Ngram`. It models the n-gram.
+
+### Instance creation
+
+You can create n-gram from any `SequenceableCollection`:
+
+```Smalltalk
+trigram := Ngram withElements: #(do not like).
+tetragram := #(green eggs and ham) asNgram.
+```
+
+Or by explicitly providing the history (n-gram of lower order) and last element:
+
+```Smalltalk
+hist := #(green eggs and) asNgram.
+w := 'ham'.
+
+ngram := Ngram withHistory: hist last: w.
+```
+
+You can also create a zerogram - n-gram of order 0. It is an empty sequence with no history and no last word:
+
+```Smalltalk
+Ngram zerogram.
+```
+
+### Accessing
+
+You can access the order of n-gram, its history and last element:
+
+```Smalltalk
+tetragram order. "4"
+tetragram history. "n-gram(green eggs and)"
+tetragram last. "ham"
+```
+
+## String extensions
