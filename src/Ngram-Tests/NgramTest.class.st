@@ -14,24 +14,6 @@ NgramTest >> testAsArray [
 ]
 
 { #category : #tests }
-NgramTest >> testAsNgram [
-	| ngram |
-	ngram := #(1 2 3) asNgram.
-	self assert: ngram order equals: 3.
-	self assert: ngram history equals: #(1 2) asNgram.
-	self assert: ngram last equals: 3.
-]
-
-{ #category : #tests }
-NgramTest >> testAsNgramString [
-	| str expected actual |
-	str := 'hello'.
-	expected := #(hello) asNgram.
-	actual := str asNgram.
-	self assert: actual equals: expected.
-]
-
-{ #category : #tests }
 NgramTest >> testEquality [
 	| firstNgram secondNgram |
 	firstNgram := #(lorem ipsum dolor) asNgram.
