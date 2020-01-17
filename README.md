@@ -15,7 +15,7 @@ To install Ngram packages, go to the Playground (Ctrl+OW) in your Pharo image an
 ```Smalltalk
 Metacello new
   baseline: 'Ngram';
-  repository: 'github://olekscode/Ngram/src';
+  repository: 'github://PharoAI/Ngram/src';
   load.
 ```
 
