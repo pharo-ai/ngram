@@ -1,7 +1,6 @@
 Class {
 	#name : #Ngram,
 	#superclass : #Object,
-	#type : #variable,
 	#instVars : [
 		'history',
 		'last'
