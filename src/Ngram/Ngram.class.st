@@ -9,12 +9,6 @@ Class {
 }
 
 { #category : #'instance creation' }
-Ngram class >> new [ 
-	"Either use zerogram to create an empty n-gram or provide values"
-	self shouldNotImplement
-]
-
-{ #category : #'instance creation' }
 Ngram class >> withElements: aCollection [
 	"Creates n-gram from a collection of n elements"
 	aCollection isEmpty ifTrue: [ ^ self zerogram ].
@@ -26,7 +20,7 @@ Ngram class >> withElements: aCollection [
 { #category : #'instance creation' }
 Ngram class >> withHistory: aNgram last: anObject [
 	"Creates n-gram with aNgram as history and anObject as last element"
-	^ super new
+	^ self new
 		history: aNgram;
 		last: anObject;
 		yourself.
@@ -35,7 +29,7 @@ Ngram class >> withHistory: aNgram last: anObject [
 { #category : #'instance creation' }
 Ngram class >> zerogram [
 	"Creates n-gram of order 0. It is an empty n-gram that has no elements"
-	^ super new.
+	^ self new.
 ]
 
 { #category : #comparing }
