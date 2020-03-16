@@ -58,11 +58,6 @@ NgramTest >> testLast [
 ]
 
 { #category : #tests }
-NgramTest >> testNew [
-	self should: [ Ngram new ] raise: Error.
-]
-
-{ #category : #tests }
 NgramTest >> testOrder [
 	| ngram |
 	ngram := #(lorem ipsum dolor sit) asNgram. 
