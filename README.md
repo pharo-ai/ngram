@@ -11,13 +11,27 @@
 `Ngram` package provides basic [n-gram](https://en.wikipedia.org/wiki/N-gram) functionality for Pharo. This includes `Ngram` class as well as `String` and `SequenceableCollection` extension that allow you to split text into unigrams, bigrams, trigrams, etc. Basically, this is just a simple utility for splitting texts into sequences of words.
 
 ## Installation
+
 To install Ngram packages, go to the Playground (Ctrl+OW) in your Pharo image and execute the following Metacello script (select it and press Do-it button or Ctrl+D):
+
 ```Smalltalk
 Metacello new
   baseline: 'Ngram';
-  repository: 'github://PharoAI/Ngram/src';
+  repository: 'github://pharo-ai/Ngram/src';
   load.
 ```
+
+## How to depend on it?
+
+If you want to add a dependency on kNN to your project, include the following lines into your baseline method:
+
+```Smalltalk
+spec
+  baseline: 'Ngram'
+  with: [ spec repository: 'github://pharo-ai/Ngram/src' ].
+```
+
+If you are new to baselines and Metacello, check out the [Baselines](https://github.com/pharo-open-documentation/pharo-wiki/blob/master/General/Baselines.md) tutorial on Pharo Wiki.
 
 ## What are n-grams?
 
