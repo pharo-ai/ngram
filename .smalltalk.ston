@@ -2,11 +2,10 @@ SmalltalkCISpec {
   #loading : [
     SCIMetacelloLoadSpec {
       #baseline : 'Ngram',
-      #directory : 'src',
-      #platforms : [ #pharo ]
+      #directory : 'src'
     }
   ],
-  #testing : {
+   #testing : {
     #coverage : {
       #packages : [ 'Ngram*' ]
     }
