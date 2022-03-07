@@ -4,7 +4,7 @@
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/olekscode/Ngram/master/LICENSE)
 [![Pharo version](https://img.shields.io/badge/Pharo-9.0-%23aac9ff.svg)](https://pharo.org/download)
-[![Pharo version](https://img.shields.io/badge/Pharo-10.0-%23aac9ff.svg)](https://pharo.org/download)
+[![Pharo version](https://img.shields.io/badge/Pharo-10-%23aac9ff.svg)](https://pharo.org/download)
 
 `Ngram` package provides basic [n-gram](https://en.wikipedia.org/wiki/N-gram) functionality for Pharo. This includes `Ngram` class as well as `String` and `SequenceableCollection` extension that allow you to split text into unigrams, bigrams, trigrams, etc. Basically, this is just a simple utility for splitting texts into sequences of words.
 
